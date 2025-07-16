@@ -24,5 +24,24 @@ public:
     }
 };
 
+Best time to buy and sell stock:
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int k = prices.at(0);
+        int price = 0;
+        for(int i=1;i<prices.size();i++){
+            if(prices.at(i)<k){
+                k = prices.at(i);
+            }
+            else if(prices.at(i)>k){
+                int diff = prices.at(i) - k;
+                if(diff>price){
+                    price = diff;
+                }
+            }
 
-
+        }
+        return price;
+    }
+};
